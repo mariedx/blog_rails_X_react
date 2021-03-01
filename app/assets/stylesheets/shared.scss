@@ -1,0 +1,48 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: whitesmoke;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; 
+}
+
+@mixin button {
+  background-color: rgb(206, 206, 248);
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: rgb(172, 172, 228);
+  }
+
+  a:visited {
+  color: pink;
+}
+}
+
+.navbar  {
+  background-color: white;
+  margin-top: -20px;
+  padding: 1% 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+
+    &:hover {
+      color: plum;
+      background-color: white;
+    }
+  }
+}

@@ -17,3 +17,4 @@ require 'faker'
 end
 puts "*" * 20
 puts "Articles"
+tp Article.all

@@ -1,3 +1,33 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "./shared.scss";
+
+.display-articles {
+  margin: 4% 8%;
+
+  td {
+    padding: 10px 0;
+  }
+
+  table {
+    margin: 0 6%;
+  }
+  
+  .title-articles {
+    text-align: center;
+    margin-bottom: 3%;
+  }
+  
+  .btn-article {
+    @include button;
+    color: whitesmoke ;
+  }
+  
+  .btn-new-article {
+    margin: 0 6%;
+    @include button;
+    background-color: rgb(122, 122, 165);
+    color: white;
+  }
+}
