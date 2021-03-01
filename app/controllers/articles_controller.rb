@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :create, :update]
 
   # GET /articles
   # GET /articles.json
@@ -25,6 +26,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
 
     respond_to do |format|
       if @article.save
@@ -54,6 +56,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
+    @article.user_id = current_user
     @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }

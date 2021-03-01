@@ -18,8 +18,10 @@
           <td><%= article.title %></td>
           <td><%= article.content %></td>
           <td><%= link_to 'Show', article, class: "btn-article" %></td>
-          <td><%= link_to 'Edit', edit_article_path(article), class: "btn-article" %></td>
-          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-article"%></td>
+          <% if current_user && article.user_id == current_user.id %>
+            <td><%= link_to 'Edit', edit_article_path(article), class: "btn-article" %></td>
+            <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-article"%></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -27,5 +29,7 @@
 
   <br>
 
-  <%= link_to 'New Article', new_article_path, class: "btn-new-article"%>
+  <% if user_signed_in? %>
+    <%= link_to 'New Article', new_article_path, class: "btn-new-article"%>
+  <% end %>
 </div>
