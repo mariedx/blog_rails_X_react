@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+# create random articles
+5.times do 
+  Article.create!(
+    title: Faker::TvShows::Community.characters,
+    content: Faker::TvShows::Community.quotes
+  )
+end
+puts "*" * 20
+puts "Articles"
